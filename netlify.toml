@@ -5,23 +5,8 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Don't redirect static assets
-[[redirects]]
-  from = "/assets/*"
-  to = "/assets/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*.js"
-  to = "/:splat.js"
-  status = 200
-
-[[redirects]]
-  from = "/*.css"
-  to = "/:splat.css"
-  status = 200
-
-# Redirect all other requests to index.html for SPA routing
+# Redirect unknown routes to index.html for SPA routing
+# Netlify automatically serves existing files first
 [[redirects]]
   from = "/*"
   to = "/index.html"
